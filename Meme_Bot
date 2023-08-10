@@ -1,0 +1,18 @@
+import discord
+from discord.ext import commands
+import random
+import os
+intents=discord.Intents.all()
+bot=commands.Bot(intents=intents,command_prefix="!")
+@bot.event
+async def on_ready():
+    print("botun uyandııı")
+@bot.command()
+async def meme_at(ctx):
+    liste=os.listdir("memes")
+    rastgele_memes=random.choice(liste)
+    tam_uzanti="memes/"+ rastgele_memes
+    f=open(tam_uzanti,"rb")
+
+    await ctx.send("calisyor")
+bot.run(TOKEN)
